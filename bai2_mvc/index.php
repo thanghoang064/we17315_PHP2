@@ -13,4 +13,8 @@ switch ($url) {
         break;
 
 }
+//Bài ASS 5 module quản lý
+// sử dụng mô hình MVC có class (7 điểm)
+// Giai đoạn 1 chấm 1 module quản lý
+// có sử dụng kế thừa trong mô hình +1 điểm
 ?>
