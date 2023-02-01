@@ -9,6 +9,7 @@
 //tạo 1 class GiangVien kế thừa ConNguoi gồm các thuộc tính lươngcb,số giờ dạy
 //tạo phương thức tổng lương(Có trả về) = lươngcb * số giờ dạy
 //tạo phương thức hiển thị thông tin gồm hoten,diachi,tuổi,sdt,email,tổng lương
+//* sử dụng hàm khởi tạo để set giá trị cho các thuộc tính của class cha và class con
 class ConNguoi {
     public $hoten;
     public $diachi;
