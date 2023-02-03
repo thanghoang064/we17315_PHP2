@@ -1,4 +1,5 @@
 <?php
+namespace Model;
 require_once "models/db.php";
 class Product extends DB
 {

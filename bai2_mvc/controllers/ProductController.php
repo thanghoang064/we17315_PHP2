@@ -1,5 +1,7 @@
 <?php
+namespace Controller;
 require_once "models/Product.php";
+
 class ProductController
 {
     function listProduct()
