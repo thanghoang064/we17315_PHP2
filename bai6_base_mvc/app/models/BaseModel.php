@@ -17,6 +17,7 @@ class BaseModel
             DBUSER,
             DBPASS
         );
+
     }
 // neu ko truyen gi thi se dung cho cau lenh select
 // neu truyen false thi danh cho cau lenh them sua
