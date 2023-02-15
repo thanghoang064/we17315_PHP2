@@ -20,6 +20,10 @@ $router->get('/', function(){
 });
 //khu vực mình quan tâm ---start
 $router->get('test', [App\Controllers\ProductController::class, 'index']);
+//route add-product chỉ lấy được ra view product
+//route add-product-post mới thực hiện được hành động thêm
+$router->get('add-product',[App\Controllers\ProductController::class, 'add']);
+$router->post('add-product-post',[App\Controllers\ProductController::class, 'postProduct']);
 //tạo mẫu 1 route có đường dẫn là add-product và trỏ đến hàm
 // addProduct trong ProductController
 //khu vực mình quan tâm ---end
