@@ -1,16 +1,16 @@
 @extends('layout.main')
 @section('content')
-    @isset($_SESSION['errors'])
+    @if(isset($_SESSION['errors']) && isset($_GET['msg']) )
         <ul>
             @foreach($_SESSION['errors'] as $error)
             <li style="color: red">{{ $error }}</li>
             @endforeach
         </ul>
-    @endisset
-    @isset($_SESSION['success'])
+    @endif
+    @if(isset($_SESSION['success']) && isset($_GET['msg']) )
         <span style="color: green">{{ $_SESSION['success'] }}</span>
-    @endisset
-<form action="{{ BASE_URL.'add-product-post' }}" method="POST">
+    @endif
+<form action="{{  route('add-product-post')  }}" method="POST">
     Tên sản phẩm <input type="text" name="ten_sp"></br>
     Đơn giá <input type="text" name="don_gia"></br>
     <input type="submit" name="them" value="Thêm">

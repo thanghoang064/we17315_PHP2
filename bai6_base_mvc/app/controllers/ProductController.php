@@ -22,7 +22,7 @@ class ProductController extends BaseController {
     public function postProduct() {
        if (isset($_POST['them'])) {
            //khởi tạo 1 mảng error bằng rỗng
-           delele_er_sc();
+
            $errors = [];
            //nếu như bỏ trống tên sản phẩm
            if (empty($_POST['ten_sp'])) {
@@ -34,15 +34,31 @@ class ProductController extends BaseController {
            }
            //nếu có lỗi thì mảng error có phần tử
            if (count($errors) > 0) {
-               $_SESSION['errors'] = $errors;
-               header('location:'.BASE_URL.'add-product');die;
+//               $_SESSION['errors'] = $errors;
+//               header('location:'.BASE_URL.'add-product');die;
+               redirect('errors',$errors,'add-product');
            } else {
                $result = $this->product->addProduct(NULL,$_POST['ten_sp'],$_POST['don_gia']);
                if ($result) {
-                   $_SESSION['success'] = "Thêm sản phẩm thành công";
-                   header('location:'.BASE_URL.'add-product');die;
+//                   $_SESSION['success'] = "Thêm sản phẩm thành công";
+//                   header('location:'.BASE_URL.'add-product');die;
+
+                   redirect('success',"Thêm sản phẩm thành công",'add-product');
                }
            }
        }
+    }
+    public function edit($id) {
+        $product = $this->product->getDetailProduct($id);
+        $this->render('product.edit',compact('product'));
+
+    }
+    public function editPost($id) {
+        if (isset($_POST['sua'])) {
+            $result = $this->product->updateProduct($id,$_POST['ten_sp'],$_POST['don_gia']);
+            if ($result) {
+                redirect('success',"Sửa thành công",'edit-product/'.$id);
+            }
+        }
     }
 }

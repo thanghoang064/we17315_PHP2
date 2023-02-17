@@ -8,7 +8,20 @@ const DBHOST = "127.0.0.1";
 
 const BASE_URL = "http://localhost:8888/we17315_PHP2/bai6_base_mvc/";
 
-function delele_er_sc(){
-    unset($_SESSION['errors']);
-    unset($_SESSION['success']);
+
+
+function route($name) {
+    return BASE_URL.$name;
+}
+function redirect($key,$msg,$route) {
+    $_SESSION[$key] = $msg;
+    switch ($key) {
+        case 'success':
+            unset($_SESSION['errors']);
+        break;
+        case 'errors':
+            unset($_SESSION['success']);
+            break;
+    }
+    header('location:'.BASE_URL.$route."?msg=".$key);die;
 }

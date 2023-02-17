@@ -13,7 +13,7 @@
     <header>
         <div class="header-main">
             <ul class="menu">
-                <li><a href="">Quản lý danh mục</a></li>
+                <li><a href="{{ route('test') }}">Quản lý danh mục</a></li>
                 <li><a href="">Quản lý sản phẩm</a></li>
             </ul>
         </div>
